@@ -6,75 +6,86 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Table(name="formulario_detalle")
+ * @ORM\Table(name="persona")
  * @ORM\Entity
  */
-class FormularioDetalle
+class Persona
 {
 
-	/**
+
+    /**
      * @Id @GeneratedValue @Column(type="integer")
      * @var int
      **/
     protected $id;
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $nombre;  
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $tip;
-    #Placeholder para ayudar al usuario
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $item_tipo;
-
-
-    /**
-     * @Column(type="string",nullable=true)
-     * @var string
-     **/
-    protected $item_contenido;
-    #contenido cuando sea abierto el campo
-
-    /**
-     * @Column(type="integer", nullable=false)
-     * @var \int
-     */
-    private $ordering = 0;
-
-    /**
-     * @Column(type="integer", nullable=false)
-     * @var \int
-     */
-    private $required = 0;
-
-    /**
-     * @Column(type="integer", nullable=false)
-     * @var \int
-     */
-    private $searchable = 0;
-
-    /**
-     * @Column(type="string", nullable=true)
-     * @var string
-     **/
-    protected $param;
-    #parametros para configurar los estilos
     
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $field_code;
+    protected $tipo_identificacion;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $identificacion;    
+
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $nombre;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $apellido;
+
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $genero;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $email;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $telefono;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $movil;
+
+    /**
+     * @Column(type="string", nullable=true)
+     * @var string
+     **/
+    protected $avatar;
+    
+    /**
+     * @Column(type="string", nullable=true)
+     * @var string
+     **/
+    protected $thumb;
+
+    /**
+     * @var \DateTime
+     * @Column(type="datetime", nullable=true)
+     */
+    private $fecha_nacimiento;
 
     /**
      * @var \DateTime
@@ -103,8 +114,7 @@ class FormularioDetalle
     private $estado = 1;
 
     function __construct(){
-        //$this->hash=md5(time());
-        $this->hash = sha1(substr(md5(uniqid(rand())),0,15)."_".$this->id);
+        $this->hash=md5(time());
         $this->fecha =  new \DateTime('now');
         $this->fecha_tiempo =  strtotime("now");
     }

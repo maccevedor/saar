@@ -31,6 +31,13 @@ class Formulario
     /**
      * @var string
      *
+     * @ORM\Column(name="descripcion", type="string", length=1000, nullable=false)
+     */
+    private $html;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
      */
     private $descripcion;

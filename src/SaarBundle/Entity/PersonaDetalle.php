@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Table(name="visita")
+ * @ORM\Table(name="persona_detalle")
  * @ORM\Entity
  */
-class Visita
+class PersonaDetalle
 {
 
 
@@ -18,65 +18,24 @@ class Visita
      * @var int
      **/
     protected $id;
-
-    #Barrio
-    /**
-     * @Column(type="name")
-     * @var string
-     **/
-    protected $name;
     
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $latitud;
+    protected $role;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $longitud;    
-
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $descripcion;
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $direccion;
-
-
-    /**
-     * @var \DateTime
-     * @Column(type="datetime", nullable=true)
-     */
-    private $fecha_asignacion;
-
-    /**
-     * @var \DateTime
-     * @Column(type="datetime", nullable=true)
-     */
-    private $fecha_realizacion;
+    protected $idFosUSer;    
 
     /**
      * @var \DateTime
      * @Column(type="datetime", nullable=true)
      */
     private $fecha;
-
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ip", type="string", length=50, nullable=false)
-     */
-    private $ip;
 
     /**
      * @var \integer
