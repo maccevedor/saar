@@ -1,8 +1,8 @@
 <?php
 
-namespace SaarBundle\Entity;
+namespace SaarBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  *
@@ -22,7 +22,7 @@ class FormularioDetalle
      * @Column(type="string")
      * @var string
      **/
-    protected $nombre;  
+    protected $nombre;
 
     /**
      * @Column(type="string")
@@ -69,7 +69,7 @@ class FormularioDetalle
      **/
     protected $param;
     #parametros para configurar los estilos
-    
+
     /**
      * @Column(type="string")
      * @var string

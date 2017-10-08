@@ -1,15 +1,16 @@
 <?php
 
-namespace SaarBundle\Entity;
+namespace SaarBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
 
 /**
  *
- * @ORM\Table(name="visita")
+ * @ORM\Table(name="persona")
  * @ORM\Entity
  */
-class Visita
+class Persona
 {
 
 
@@ -19,64 +20,79 @@ class Visita
      **/
     protected $id;
 
-    #Barrio
-    /**
-     * @Column(type="name")
-     * @var string
-     **/
-    protected $name;
-    
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $latitud;
+    protected $tipo_identificacion;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $longitud;    
+    protected $identificacion;
 
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $descripcion;
+    protected $nombre;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $direccion;
+    protected $apellido;
 
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $genero;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $email;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $telefono;
+
+    /**
+     * @Column(type="string")
+     * @var string
+     **/
+    protected $movil;
+
+    /**
+     * @Column(type="string", nullable=true)
+     * @var string
+     **/
+    protected $avatar;
+
+    /**
+     * @Column(type="string", nullable=true)
+     * @var string
+     **/
+    protected $thumb;
 
     /**
      * @var \DateTime
      * @Column(type="datetime", nullable=true)
      */
-    private $fecha_asignacion;
-
-    /**
-     * @var \DateTime
-     * @Column(type="datetime", nullable=true)
-     */
-    private $fecha_realizacion;
+    private $fecha_nacimiento;
 
     /**
      * @var \DateTime
      * @Column(type="datetime", nullable=true)
      */
     private $fecha;
-
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ip", type="string", length=50, nullable=false)
-     */
-    private $ip;
 
     /**
      * @var \integer

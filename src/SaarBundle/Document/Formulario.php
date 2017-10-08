@@ -1,8 +1,8 @@
 <?php
 
-namespace SaarBundle\Entity;
+namespace SaarBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  *
@@ -31,13 +31,6 @@ class Formulario
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=1000, nullable=false)
-     */
-    private $html;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
      */
     private $descripcion;
@@ -55,14 +48,14 @@ class Formulario
      * @ORM\Column(name="fecha", type="datetime", nullable=false)
      */
     private $fecha;
-    
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="datetime", nullable=false)
      */
     private $fechaCreacion;
-    
+
     /**
      * @var string
      *

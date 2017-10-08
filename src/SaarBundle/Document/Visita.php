@@ -1,15 +1,15 @@
 <?php
 
-namespace SaarBundle\Entity;
+namespace SaarBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  *
- * @ORM\Table(name="persona")
+ * @ORM\Table(name="visita")
  * @ORM\Entity
  */
-class Persona
+class Visita
 {
 
 
@@ -18,80 +18,65 @@ class Persona
      * @var int
      **/
     protected $id;
-    
+
+    #Barrio
     /**
-     * @Column(type="string")
+     * @Column(type="name")
      * @var string
      **/
-    protected $tipo_identificacion;
+    protected $name;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $identificacion;    
-
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $nombre;
+    protected $latitud;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $apellido;
+    protected $longitud;
 
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $genero;
+    protected $descripcion;
 
     /**
      * @Column(type="string")
      * @var string
      **/
-    protected $email;
+    protected $direccion;
 
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $telefono;
-
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $movil;
-
-    /**
-     * @Column(type="string", nullable=true)
-     * @var string
-     **/
-    protected $avatar;
-    
-    /**
-     * @Column(type="string", nullable=true)
-     * @var string
-     **/
-    protected $thumb;
 
     /**
      * @var \DateTime
      * @Column(type="datetime", nullable=true)
      */
-    private $fecha_nacimiento;
+    private $fecha_asignacion;
+
+    /**
+     * @var \DateTime
+     * @Column(type="datetime", nullable=true)
+     */
+    private $fecha_realizacion;
 
     /**
      * @var \DateTime
      * @Column(type="datetime", nullable=true)
      */
     private $fecha;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=50, nullable=false)
+     */
+    private $ip;
 
     /**
      * @var \integer
