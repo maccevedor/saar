@@ -6,7 +6,7 @@ user:
 saar:
     resource: "@SaarBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /saar
 
 app:
     resource: "@AppBundle/Controller/"

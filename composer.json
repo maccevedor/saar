@@ -17,10 +17,11 @@
         }
     },
     "require": {
-        "doctrine/mongodb-odm-bundle": "^3.0",
-        "php": ">=5.5.9",
+        "php": ">=7",
         "symfony/symfony": "3.1.*",
-        "doctrine/orm": "^2.5",
+        "doctrine/orm": "^2.5.6",
+        "doctrine/annotations": "1.4.*",
+        "doctrine/dbal": "2.5.4",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "symfony/swiftmailer-bundle": "^2.3.10",
@@ -63,6 +64,6 @@
         "branch-alias": null
     },
     "config": {
-        "platform": {"php": "5.6"}
+        "platform": {"php": "7.1"}
     }
 }
