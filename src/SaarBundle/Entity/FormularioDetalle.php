@@ -12,100 +12,111 @@ use Doctrine\ORM\Mapping as ORM;
 class FormularioDetalle
 {
 
-	/**
-     * @Id @GeneratedValue @Column(type="integer")
-     * @var int
-     **/
-    protected $id;
+  /**
+   * @var integer
+   *
+   * @ORM\Column(name="id", type="integer", nullable=false)
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="IDENTITY")
+   */
+   private $id;
 
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $nombre;
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="nombre", type="string", length=200, nullable=false)
+    */
+   private $nombre;
 
-    /**
-     * @Column(type="string")
-     * @var string
-     **/
-    protected $tip;
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="tip", type="string", length=100, nullable=false)
+    */
+   private $tip;
     #Placeholder para ayudar al usuario
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
-    protected $item_tipo;
-
+     *
+     * @ORM\Column(name="$item_tipo", type="string", length=1, nullable=false)
+     */
+    private $itemTipo;
 
     /**
-     * @Column(type="string",nullable=true)
      * @var string
-     **/
-    protected $item_contenido;
+     *
+     * @ORM\Column(name="$item_contenido", type="string", length=1, nullable=false)
+     */
+    private $itemContenido;
     #contenido cuando sea abierto el campo
 
     /**
-     * @Column(type="integer", nullable=false)
-     * @var \int
+     * @var string
+     *
+     * @ORM\Column(name="ordering", type="string", length=100, nullable=false)
      */
     private $ordering = 0;
 
     /**
-     * @Column(type="integer", nullable=false)
-     * @var \int    private $estado =1;
-
+     * @var string
+     *
+     * @ORM\Column(name="required", type="string", length=1, nullable=false)
      */
     private $required = 0;
 
     /**
-     * @Column(type="integer", nullable=false)
-     * @var \int
+     * @var string
+     *
+     * @ORM\Column(name="searchable", type="string", length=1, nullable=false)
      */
     private $searchable = 0;
 
     /**
-     * @Column(type="string", nullable=true)
      * @var string
-     **/
-    protected $param;
+     *
+     * @ORM\Column(name="param", type="string", length=1, nullable=false)
+     */
+    private $param;
     #parametros para configurar los estilos
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
-    protected $field_code;
+     *
+     * @ORM\Column(name="field_code", type="string", length=1, nullable=false)
+     */
+    private $fieldCode;
 
     /**
      * @var \DateTime
-     * @Column(type="datetime", nullable=true)
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
      */
     private $fecha;
 
     /**
-     * @var \integer
-     * @Column(type="integer", nullable=true)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_tiempo", type="datetime", nullable=true)
      */
-    private $fecha_tiempo;
+    private $fechaTiempo;
 
     /**
      * @var string
-     * @Column(type="string", length=50, nullable=true)
+     *
+     * @ORM\Column(name="hash", type="string", length=250, nullable=true)
      */
 
     private $hash;
 
     /**
-     * @var int
-     * @Column(type="integer", length=1, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=1, nullable=true)
      */
-
     private $estado = 1;
 
-
-    /**
-     * @var \idUser
+     /** @var \idUser
      *
      * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
      * @ORM\JoinColumns({
@@ -117,7 +128,7 @@ class FormularioDetalle
 
     function __construct(){
         //$this->hash=md5(time());
-        $this->hash = sha1(substr(md5(uniqid(rand())),0,15)."_".$this->id);
+        $this->hash = sha1(substr(md5(unihashqid(rand())),0,15)."_".$this->id);
         $this->fecha =  new \DateTime('now');
         $this->fecha_tiempo =  strtotime("now");
     }

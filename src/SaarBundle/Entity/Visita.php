@@ -13,11 +13,14 @@ class Visita
 {
 
 
-    /**
-     * @Id @GeneratedValue @Column(type="integer")
-     * @var int
-     **/
-    protected $id;
+  /**
+    * @var integer
+    *
+    * @ORM\Column(name="id", type="integer", nullable=false)
+    * @ORM\Id
+    * @ORM\GeneratedValue(strategy="IDENTITY")
+    */
+   private $id;
 
     /**
    * @var string
@@ -29,52 +32,65 @@ class Visita
 
     #Barrio
     /**
-     * @Column(type="name")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="name", type="string", length=250, nullable=true)
+     */
+
     protected $name;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="latitud", type="string", length=250, nullable=true)
+     */
+
     protected $latitud;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="longitud", type="string", length=250, nullable=true)
+     */
+
     protected $longitud;
 
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="descripcion", type="string", length=250, nullable=true)
+     */
+
     protected $descripcion;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="direccion", type="string", length=250, nullable=true)
+     */
+
     protected $direccion;
 
 
     /**
      * @var \DateTime
-     * @Column(type="datetime", nullable=true)
+     *
+     * @ORM\Column(name="fecha_asignacion", type="datetime", nullable=true)
      */
-    private $fecha_asignacion;
+    private $fechaAsignacion;
 
     /**
      * @var \DateTime
-     * @Column(type="datetime", nullable=true)
+     *
+     * @ORM\Column(name="fecha_realizacion", type="datetime", nullable=true)
      */
-    private $fecha_realizacion;
+    private $fechaRealizacion;
 
     /**
      * @var \DateTime
-     * @Column(type="datetime", nullable=true)
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
      */
     private $fecha;
 
@@ -87,16 +103,18 @@ class Visita
     private $ip;
 
     /**
-     * @var \integer
-     * @Column(type="integer", nullable=true)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_tiempo", type="datetime", nullable=true)
      */
-    private $fecha_tiempo;
+    private $fechaTiempo;
+
 
     /**
-     * @var int
-     * @Column(type="integer", length=1, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=1, nullable=true)
      */
-
     private $estado = 1;
 
     /**

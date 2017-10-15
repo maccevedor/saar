@@ -18,46 +18,53 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
-    protected $tipo_identificacion;
+     *
+     * @ORM\Column(name="tipo_identificacion", type="string", length=200, nullable=true)
+     */
+    protected $tipoIdentificacion;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="nombre", type="string", length=200, nullable=true)
+     */
     protected $nombre;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="apellido", type="string", length=200, nullable=true)
+     */
     protected $apellido;
 
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="genero", type="string", length=200, nullable=true)
+     */
     protected $genero;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
+     *
+     * @ORM\Column(name="movil", type="string", length=100, nullable=true)
+     */
     protected $movil;
 
     /**
-     * @Column(type="string")
      * @var string
-     **/
-    protected $id_movil = 57;
+     *
+     * @ORM\Column(name="pais_movil", type="string", length=4, nullable=true)
+     */
+    protected $pais_movil = 57;
 
     /**
-     * @Column(type="string", nullable=true)
      * @var string
-     **/
+     *
+     * @ORM\Column(name="avatar", type="string", length=500, nullable=true)
+     */
     protected $avatar;
 
 
