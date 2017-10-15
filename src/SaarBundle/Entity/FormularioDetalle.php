@@ -22,7 +22,7 @@ class FormularioDetalle
      * @Column(type="string")
      * @var string
      **/
-    protected $nombre;  
+    protected $nombre;
 
     /**
      * @Column(type="string")
@@ -53,7 +53,8 @@ class FormularioDetalle
 
     /**
      * @Column(type="integer", nullable=false)
-     * @var \int
+     * @var \int    private $estado =1;
+
      */
     private $required = 0;
 
@@ -69,7 +70,7 @@ class FormularioDetalle
      **/
     protected $param;
     #parametros para configurar los estilos
-    
+
     /**
      * @Column(type="string")
      * @var string
@@ -101,6 +102,18 @@ class FormularioDetalle
      */
 
     private $estado = 1;
+
+
+    /**
+     * @var \idUser
+     *
+     * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idFormulario", referencedColumnName="id")
+     * })
+     */
+
+    private $idFormulario;
 
     function __construct(){
         //$this->hash=md5(time());

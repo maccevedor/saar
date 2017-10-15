@@ -22,6 +22,14 @@ class Formulario
     private $id;
 
     /**
+    * @var string
+    *
+    * @ORM\Column(name="hash", type="string", length=50, nullable=true)
+    */
+
+    private $hash;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=255, nullable=false)
@@ -48,20 +56,34 @@ class Formulario
      * @ORM\Column(name="fecha", type="datetime", nullable=false)
      */
     private $fecha;
-    
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="datetime", nullable=false)
      */
     private $fechaCreacion;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="estado", type="string", length=1, nullable=false)
      */
     private $estado =1;
+
+      /**
+      * @var integer
+      *    /**
+      * @var \idUser
+      *
+      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+      * @ORM\JoinColumns({
+      *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+      * })
+      */
+
+      private $idUser;
+
 
   	function __construct(){
         $this->hash=md5(time());

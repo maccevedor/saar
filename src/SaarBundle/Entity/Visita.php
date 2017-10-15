@@ -19,13 +19,21 @@ class Visita
      **/
     protected $id;
 
+    /**
+   * @var string
+   *
+   * @ORM\Column(name="hash", type="string", length=50, nullable=true)
+   */
+
+   private $hash;
+
     #Barrio
     /**
      * @Column(type="name")
      * @var string
      **/
     protected $name;
-    
+
     /**
      * @Column(type="string")
      * @var string
@@ -36,7 +44,7 @@ class Visita
      * @Column(type="string")
      * @var string
      **/
-    protected $longitud;    
+    protected $longitud;
 
 
     /**
@@ -70,7 +78,7 @@ class Visita
      */
     private $fecha;
 
-    
+
     /**
      * @var string
      *
@@ -85,18 +93,22 @@ class Visita
     private $fecha_tiempo;
 
     /**
-     * @var string
-     * @Column(type="string", length=50, nullable=true)
-     */
-
-    private $hash;
-
-    /**
      * @var int
      * @Column(type="integer", length=1, nullable=true)
      */
 
     private $estado = 1;
+
+    /**
+     * @var \idUser
+     *
+     * @ORM\ManyToOne(targetEntity="USerBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * })
+     */
+
+    private $idUser;
 
     function __construct(){
         $this->hash=md5(time());
