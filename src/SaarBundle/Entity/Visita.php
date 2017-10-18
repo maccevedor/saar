@@ -137,6 +137,40 @@ class Visita
 
     private $idCliente;
 
+    /**
+     * @var \idAsesor
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_asesor", referencedColumnName="id")
+     * })
+     */
+
+    private $idAsesor;
+
+
+    /**
+     * @var \idSupervisor
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_supervisor", referencedColumnName="id")
+     * })
+     */
+
+    private $idSupervisor;
+
+    /** @var \idFormulario
+    *
+    * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
+    * @ORM\JoinColumns({
+    *   @ORM\JoinColumn(name="id_formulario", referencedColumnName="id")
+    * })
+    */
+
+   private $idFormulario;
+
+
     function __construct(){
         $this->hash=md5(time());
         $this->fecha =  new \DateTime('now');
@@ -487,5 +521,77 @@ class Visita
     public function getIdCliente()
     {
         return $this->idCliente;
+    }
+
+    /**
+     * Set idAsesor
+     *
+     * @param \UserBundle\Entity\User $idAsesor
+     *
+     * @return Visita
+     */
+    public function setIdAsesor(\UserBundle\Entity\User $idAsesor = null)
+    {
+        $this->idAsesor = $idAsesor;
+
+        return $this;
+    }
+
+    /**
+     * Get idAsesor
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getIdAsesor()
+    {
+        return $this->idAsesor;
+    }
+
+    /**
+     * Set idSupervisor
+     *
+     * @param \UserBundle\Entity\User $idSupervisor
+     *
+     * @return Visita
+     */
+    public function setIdSupervisor(\UserBundle\Entity\User $idSupervisor = null)
+    {
+        $this->idSupervisor = $idSupervisor;
+
+        return $this;
+    }
+
+    /**
+     * Get idSupervisor
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getIdSupervisor()
+    {
+        return $this->idSupervisor;
+    }
+
+    /**
+     * Set idFormulario
+     *
+     * @param \SaarBundle\Entity\Formulario $idFormulario
+     *
+     * @return Visita
+     */
+    public function setIdFormulario(\SaarBundle\Entity\Formulario $idFormulario = null)
+    {
+        $this->idFormulario = $idFormulario;
+
+        return $this;
+    }
+
+    /**
+     * Get idFormulario
+     *
+     * @return \SaarBundle\Entity\Formulario
+     */
+    public function getIdFormulario()
+    {
+        return $this->idFormulario;
     }
 }

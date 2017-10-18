@@ -109,7 +109,7 @@ class FormularioDetalle
      */
     private $estado = 1;
 
-     /** @var \idUser
+     /** @var \idFormulario
      *
      * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
      * @ORM\JoinColumns({
