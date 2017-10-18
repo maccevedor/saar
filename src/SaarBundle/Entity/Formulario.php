@@ -32,6 +32,13 @@ class Formulario
     /**
      * @var string
      *
+     * @ORM\Column(name="html", type="text", length=1000,  nullable=true)
+     */
+    private $html;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="titulo", type="string", length=255, nullable=false)
      */
     private $nombre;
@@ -65,6 +72,13 @@ class Formulario
     private $fechaCreacion;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_caduca", type="datetime", nullable=false)
+     */
+    private $fechaCaduca;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="estado", type="string", length=1, nullable=false)
@@ -72,8 +86,7 @@ class Formulario
     private $estado =1;
 
       /**
-      * @var integer
-      *    /**
+      *
       * @var \idUser
       *
       * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
@@ -85,13 +98,11 @@ class Formulario
 
       private $idUser;
 
-
   	function __construct(){
         $this->hash=md5(time());
         $this->fecha =  new \DateTime('now');
         $this->fecha_tiempo =  strtotime("now");
     }
-
 
     /**
      * Get id
@@ -293,5 +304,53 @@ class Formulario
     public function getIdUser()
     {
         return $this->idUser;
+    }
+
+    /**
+     * Set fechaCaduca
+     *
+     * @param \DateTime $fechaCaduca
+     *
+     * @return Formulario
+     */
+    public function setFechaCaduca($fechaCaduca)
+    {
+        $this->fechaCaduca = $fechaCaduca;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaCaduca
+     *
+     * @return \DateTime
+     */
+    public function getFechaCaduca()
+    {
+        return $this->fechaCaduca;
+    }
+
+    /**
+     * Set html
+     *
+     * @param string $html
+     *
+     * @return Formulario
+     */
+    public function setHtml($html)
+    {
+        $this->html = $html;
+
+        return $this;
+    }
+
+    /**
+     * Get html
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return $this->html;
     }
 }

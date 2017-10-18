@@ -342,4 +342,28 @@ class FormularioRespuesta
     {
         return $this->ip;
     }
+
+    /**
+     * Set idVisita
+     *
+     * @param \SaarBundle\Entity\Visita $idVisita
+     *
+     * @return FormularioRespuesta
+     */
+    public function setIdVisita(\SaarBundle\Entity\Visita $idVisita = null)
+    {
+        $this->idVisita = $idVisita;
+
+        return $this;
+    }
+
+    /**
+     * Get idVisita
+     *
+     * @return \SaarBundle\Entity\Visita
+     */
+    public function getIdVisita()
+    {
+        return $this->idVisita;
+    }
 }
