@@ -86,6 +86,14 @@ class Visita
     private $fechaRealizacion;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_limite", type="datetime", nullable=true)
+     */
+    private $fechaLimite;
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="ip", type="string", length=50, nullable=false)
