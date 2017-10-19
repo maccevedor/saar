@@ -51,7 +51,7 @@ class Notificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=1000, nullable=true,options={"contenido"})
+     * @ORM\Column(name="content", type="string", length=1000, nullable=true,options={"comment":"contenido"})
      */
 
     private $content;
@@ -59,7 +59,7 @@ class Notificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="tipo", type="string", length=1000, nullable=true,options={"email, msm ,call,notificacion , push notificacion"})
+     * @ORM\Column(name="tipo", type="string", length=1000, nullable=true,options={"comment":"email, msm ,call,notificacion , push notificacion"})
      */
 
     private $tipo;
@@ -68,14 +68,14 @@ class Notificacion
     /**
      * @var integer
      *
-     * @ORM\Column(name="envio", type="integer", length=11 ,  nullable=true,options={"1 = si se confimo el envio , 0= si no se realizo"})
+     * @ORM\Column(name="envio", type="integer", length=11 ,  nullable=true,options={"comment":"1 = si se confimo el envio , 0= si no se realizo"})
      */
     private $envio = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="error", type="integer", length=11 , nullable=true,options={"1 = genero error"})
+     * @ORM\Column(name="error", type="integer", length=11 , nullable=true,options={"comment":"1 = genero error"})
      */
     private $error=0;
 
@@ -96,21 +96,21 @@ class Notificacion
    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_limite", type="datetime", nullable=true,options={"Fecha limite para el envio"})
+     * @ORM\Column(name="fecha_limite", type="datetime", nullable=true,options={"comment":"Fecha limite para el envio"})
      */
     private $fechaLimite;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_visualizacion", type="datetime", nullable=true,options={"Se deja la ultima visualizacion de soporte"})
+     * @ORM\Column(name="fecha_visualizacion", type="datetime", nullable=true,options={"comment":"Se deja la ultima visualizacion de soporte"})
      */
     private $fechaVisualizacion;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="contador", type="integer", length=1, nullable=true,options={"visualizaciones realizadas"})
+     * @ORM\Column(name="contador", type="integer", length=1, nullable=true,options={"comment":"visualizaciones realizadas"})
      */
     private $contador;
 

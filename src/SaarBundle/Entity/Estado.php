@@ -31,7 +31,7 @@ class Estado
     /**
      * @var string
      *
-     * @ORM\Column(name="modulo", type="string", length=255, nullable=true, options={"nombre del modulo o de la tabla a trabajar"})
+     * @ORM\Column(name="modulo", type="string", length=255, nullable=true, options={"comment":"nombre del modulo o de la tabla a trabajar"})
      */
     private $modulo;
 

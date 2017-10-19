@@ -46,14 +46,14 @@ class Documento
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=1000, nullable=false,options={"Url donde esta el documento si es necesario"})
+     * @ORM\Column(name="url", type="string", length=1000, nullable=false,options={"comment":"Url donde esta el documento si es necesario"})
      */
     private $url;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="formato", type="string", length=1000, nullable=false,options={".pdf , .xls , etc "})
+     * @ORM\Column(name="formato", type="string", length=1000, nullable=false,options={"comment":".pdf , .xls , etc "})
      */
     private $formato;
 
