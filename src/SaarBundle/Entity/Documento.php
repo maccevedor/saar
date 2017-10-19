@@ -46,6 +46,20 @@ class Documento
     /**
      * @var string
      *
+     * @ORM\Column(name="url", type="string", length=1000, nullable=false,options={"Url donde esta el documento si es necesario"})
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formato", type="string", length=1000, nullable=false,options={".pdf , .xls , etc "})
+     */
+    private $formato;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
      */
     private $descripcion;
@@ -321,5 +335,53 @@ class Documento
     public function getIdUser()
     {
         return $this->idUser;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Documento
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set formato
+     *
+     * @param \url $formato
+     *
+     * @return Documento
+     */
+    public function setFormato(\url $formato)
+    {
+        $this->formato = $formato;
+
+        return $this;
+    }
+
+    /**
+     * Get formato
+     *
+     * @return \url
+     */
+    public function getFormato()
+    {
+        return $this->formato;
     }
 }

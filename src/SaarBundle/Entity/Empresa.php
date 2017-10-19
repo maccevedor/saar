@@ -5,7 +5,7 @@ namespace SaarBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AxaEmpresa
+ * Empresa
  *
  * @ORM\Table(name="empresa", uniqueConstraints={@ORM\UniqueConstraint(name="nit", columns={"nit"})})
  * @ORM\Entity
@@ -55,4 +55,134 @@ class Empresa
      * @ORM\Column(name="estado", type="string", length=1, nullable=true)
      */
     private $estado;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nit
+     *
+     * @param string $nit
+     *
+     * @return Empresa
+     */
+    public function setNit($nit)
+    {
+        $this->nit = $nit;
+
+        return $this;
+    }
+
+    /**
+     * Get nit
+     *
+     * @return string
+     */
+    public function getNit()
+    {
+        return $this->nit;
+    }
+
+    /**
+     * Set razonSocial
+     *
+     * @param string $razonSocial
+     *
+     * @return Empresa
+     */
+    public function setRazonSocial($razonSocial)
+    {
+        $this->razonSocial = $razonSocial;
+
+        return $this;
+    }
+
+    /**
+     * Get razonSocial
+     *
+     * @return string
+     */
+    public function getRazonSocial()
+    {
+        return $this->razonSocial;
+    }
+
+    /**
+     * Set afiliacion
+     *
+     * @param string $afiliacion
+     *
+     * @return Empresa
+     */
+    public function setAfiliacion($afiliacion)
+    {
+        $this->afiliacion = $afiliacion;
+
+        return $this;
+    }
+
+    /**
+     * Get afiliacion
+     *
+     * @return string
+     */
+    public function getAfiliacion()
+    {
+        return $this->afiliacion;
+    }
+
+    /**
+     * Set tipoEmpresa
+     *
+     * @param string $tipoEmpresa
+     *
+     * @return Empresa
+     */
+    public function setTipoEmpresa($tipoEmpresa)
+    {
+        $this->tipoEmpresa = $tipoEmpresa;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoEmpresa
+     *
+     * @return string
+     */
+    public function getTipoEmpresa()
+    {
+        return $this->tipoEmpresa;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param string $estado
+     *
+     * @return Empresa
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return string
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
 }

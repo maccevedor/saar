@@ -115,11 +115,19 @@ class Visita
      */
     private $fechaTiempo;
 
+    /**
+     * @var \string
+     *
+     * @ORM\Column(name="hora", type="string", nullable=true, options={"comment":" Tiempo de la visita en minutos"})
+     */
+    private $tiempo;
+
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="estado", type="string", length=1, nullable=true)
+     * @ORM\Column(name="estado", type="string", length=1, nullable=true, options={"0=inactiva,1=Active,2=Reprogramada ,3=Cancelada ,4=No realizada,5=Direccion erronea,recahzo"})
      */
     private $estado = 1;
 
@@ -601,5 +609,53 @@ class Visita
     public function getIdFormulario()
     {
         return $this->idFormulario;
+    }
+
+    /**
+     * Set fechaLimite
+     *
+     * @param \DateTime $fechaLimite
+     *
+     * @return Visita
+     */
+    public function setFechaLimite($fechaLimite)
+    {
+        $this->fechaLimite = $fechaLimite;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaLimite
+     *
+     * @return \DateTime
+     */
+    public function getFechaLimite()
+    {
+        return $this->fechaLimite;
+    }
+
+    /**
+     * Set tiempo
+     *
+     * @param string $tiempo
+     *
+     * @return Visita
+     */
+    public function setTiempo($tiempo)
+    {
+        $this->tiempo = $tiempo;
+
+        return $this;
+    }
+
+    /**
+     * Get tiempo
+     *
+     * @return string
+     */
+    public function getTiempo()
+    {
+        return $this->tiempo;
     }
 }
