@@ -39,7 +39,7 @@ class FormularioDetalle
     /**
      * @var string
      *
-     * @ORM\Column(name="$item_tipo", type="string", length=1, nullable=false)
+     * @ORM\Column(name="item_tipo", type="string", length=1, nullable=false)
      */
     private $itemTipo;
     #email,numbre,web,etc
@@ -109,7 +109,7 @@ class FormularioDetalle
      */
     private $estado = 1;
 
-     /** @var \idUser
+     /** @var \idFormulario
      *
      * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
      * @ORM\JoinColumns({

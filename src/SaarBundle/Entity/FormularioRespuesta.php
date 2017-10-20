@@ -88,8 +88,6 @@ class FormularioRespuesta
 
 
      /**
-     * @var integer
-     *    /**
      * @var \idUser
      *
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
@@ -99,6 +97,17 @@ class FormularioRespuesta
      */
 
      private $idUser;
+
+     /**
+     * @var \idVisita
+     *
+     * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Visita")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_visita", referencedColumnName="id")
+     * })use Doctrine\ORM\Mapping as ORM;
+     */
+
+     private $idVisita;
 
 
     function __construct(){
@@ -332,5 +341,29 @@ class FormularioRespuesta
     public function getIp()
     {
         return $this->ip;
+    }
+
+    /**
+     * Set idVisita
+     *
+     * @param \SaarBundle\Entity\Visita $idVisita
+     *
+     * @return FormularioRespuesta
+     */
+    public function setIdVisita(\SaarBundle\Entity\Visita $idVisita = null)
+    {
+        $this->idVisita = $idVisita;
+
+        return $this;
+    }
+
+    /**
+     * Get idVisita
+     *
+     * @return \SaarBundle\Entity\Visita
+     */
+    public function getIdVisita()
+    {
+        return $this->idVisita;
     }
 }

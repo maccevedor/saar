@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Table(name="Documento")
+ * @ORM\Table(name="documento")
  * @ORM\Entity
  */
 class Documento
@@ -42,6 +42,20 @@ class Documento
      * @ORM\Column(name="html", type="string", length=1000, nullable=false)
      */
     private $html;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=1000, nullable=false,options={"comment":"Url donde esta el documento si es necesario"})
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formato", type="string", length=1000, nullable=false,options={"comment":".pdf , .xls , etc "})
+     */
+    private $formato;
 
     /**
      * @var string
@@ -321,5 +335,53 @@ class Documento
     public function getIdUser()
     {
         return $this->idUser;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Documento
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set formato
+     *
+     * @param \url $formato
+     *
+     * @return Documento
+     */
+    public function setFormato(\url $formato)
+    {
+        $this->formato = $formato;
+
+        return $this;
+    }
+
+    /**
+     * Get formato
+     *
+     * @return \url
+     */
+    public function getFormato()
+    {
+        return $this->formato;
     }
 }
