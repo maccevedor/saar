@@ -1,3 +1,9 @@
+saar_empresa:
+    resource: "@SaarBundle/Controller/EmpresaController.php"
+    type:     annotation
+    prefix:   /empresa
+
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
