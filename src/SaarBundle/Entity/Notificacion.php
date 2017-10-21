@@ -34,7 +34,7 @@ class Notificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="destino", type="string", length=255, nullable=true,options={"caundo aplique ,email, msm ,call,notificacion , push notificacion"})
+     * @ORM\Column(name="destino", type="string", length=255, nullable=true,options={"comment":"caundo aplique ,email, msm ,call,notificacion , push notificacion"})
      */
 
     private $destino;
@@ -43,7 +43,7 @@ class Notificacion
     /**
      * @var string
      *
-     * @ORM\Column(name="subject", type="string", length=255, nullable=true,options={"titulo para los que aplique"})
+     * @ORM\Column(name="subject", type="string", length=255, nullable=true,options={"comment":"titulo para los que aplique"})
      */
 
     private $subject;

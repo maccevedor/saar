@@ -62,7 +62,7 @@ class FormularioOpcion
      *
      * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\FormularioDetalle")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idFormularioDetalle", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_formulario_detalle", referencedColumnName="id")
      * })
      */
 

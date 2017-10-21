@@ -84,7 +84,7 @@ class Visita
      * @ORM\Column(name="fecha_realizacion", type="datetime", nullable=true)
      */
     private $fechaRealizacion;
-
+    
     /**
      * @var \DateTime
      *
@@ -657,5 +657,29 @@ class Visita
     public function getTiempo()
     {
         return $this->tiempo;
+    }
+
+    /**
+     * Set tipoIdentificacion
+     *
+     * @param string $tipoIdentificacion
+     *
+     * @return Visita
+     */
+    public function setTipoIdentificacion($tipoIdentificacion)
+    {
+        $this->tipoIdentificacion = $tipoIdentificacion;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoIdentificacion
+     *
+     * @return string
+     */
+    public function getTipoIdentificacion()
+    {
+        return $this->tipoIdentificacion;
     }
 }
