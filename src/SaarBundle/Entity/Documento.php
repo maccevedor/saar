@@ -104,6 +104,16 @@ class Documento
 
     private $idUser;
 
+    /** @var \idFormulario
+    *
+    * @ORM\ManyToOne(targetEntity="SaarBundle\Entity\Formulario")
+    * @ORM\JoinColumns({
+    *   @ORM\JoinColumn(name="id_formulario", referencedColumnName="id")
+    * })
+    */
+
+   private $idFormulario;
+   
   	function __construct(){
         $this->hash=md5(time());
         $this->fecha =  new \DateTime('now');
@@ -383,5 +393,29 @@ class Documento
     public function getFormato()
     {
         return $this->formato;
+    }
+
+    /**
+     * Set idFormulario
+     *
+     * @param \SaarBundle\Entity\Formulario $idFormulario
+     *
+     * @return Documento
+     */
+    public function setIdFormulario(\SaarBundle\Entity\Formulario $idFormulario = null)
+    {
+        $this->idFormulario = $idFormulario;
+
+        return $this;
+    }
+
+    /**
+     * Get idFormulario
+     *
+     * @return \SaarBundle\Entity\Formulario
+     */
+    public function getIdFormulario()
+    {
+        return $this->idFormulario;
     }
 }

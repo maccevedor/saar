@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formulario</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formulario.id }}</td>
+            </tr>
+            <tr>
+                <th>Hash</th>
+                <td>{{ formulario.hash }}</td>
+            </tr>
+            <tr>
+                <th>Html</th>
+                <td>{{ formulario.html }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ formulario.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ formulario.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ formulario.ip }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if formulario.fecha %}{{ formulario.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechacreacion</th>
+                <td>{% if formulario.fechaCreacion %}{{ formulario.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechacaduca</th>
+                <td>{% if formulario.fechaCaduca %}{{ formulario.fechaCaduca|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ formulario.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('formulario_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('formulario_edit', { 'id': formulario.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

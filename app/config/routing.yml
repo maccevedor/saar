@@ -1,3 +1,7 @@
+saar_formulario:
+    resource: "@SaarBundle/Controller/FormularioController.php"
+    type:     annotation
+
 saar_empresa:
     resource: "@SaarBundle/Controller/EmpresaController.php"
     type:     annotation

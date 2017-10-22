@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formularios list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hash</th>
+                <th>Html</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Ip</th>
+                <th>Fecha</th>
+                <th>Fechacreacion</th>
+                <th>Fechacaduca</th>
+                <th>Estado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formulario in formularios %}
+            <tr>
+                <td><a href="{{ path('formulario_show', { 'id': formulario.id }) }}">{{ formulario.id }}</a></td>
+                <td>{{ formulario.hash }}</td>
+                <td>{{ formulario.html }}</td>
+                <td>{{ formulario.nombre }}</td>
+                <td>{{ formulario.descripcion }}</td>
+                <td>{{ formulario.ip }}</td>
+                <td>{% if formulario.fecha %}{{ formulario.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if formulario.fechaCreacion %}{{ formulario.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if formulario.fechaCaduca %}{{ formulario.fechaCaduca|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ formulario.estado }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('formulario_show', { 'id': formulario.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('formulario_edit', { 'id': formulario.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('formulario_new') }}">Create a new formulario</a>
+        </li>
+    </ul>
+{% endblock %}
