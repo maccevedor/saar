@@ -3,6 +3,8 @@ namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -28,6 +30,8 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="identificacion", type="string", length=200, nullable=true)
+     *
+     * @Assert\NotBlank(message="Es obligatoria la identificacion", groups={"Registration", "Profile"})
      */
     protected $identificacion;
 
