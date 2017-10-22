@@ -53,6 +53,7 @@ class User extends BaseUser
     /**
      * @var string
      *
+      * @Assert\Choice(callback = "getGeneros")
      * @ORM\Column(name="genero", type="string", length=200, nullable=true)
      */
     protected $genero;
@@ -60,7 +61,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="movil", type="string", length=100, nullable=true)
+     * @ORM\Column(name="movil", type="integer", length=10, nullable=true)
+     * @Assert\Length(
+     *     min=10,
+     *     max=10,
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $movil;
 
@@ -86,6 +94,13 @@ class User extends BaseUser
     private $ip;
 
     /**
+    * @var string
+     * @Assert\Country()
+     * @ORM\Column(name="pais", type="string", length=50, nullable=true)
+     */
+     protected $pais;
+
+    /**
     *
     * @var \idEmpresa
     *
@@ -101,6 +116,11 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+
+    public static function getGeneros()
+    {
+        return array('Masculino', 'Femenino');
     }
 
     /**
@@ -318,6 +338,33 @@ class User extends BaseUser
     {
         return $this->ip;
     }
+
+
+    /**
+     * Set pais
+     *
+     * @param string $pais
+     *
+     * @return User
+     */
+    public function setPais($pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return string
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+
 
     /**
      * Set idEmpresa

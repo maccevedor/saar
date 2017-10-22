@@ -185,4 +185,9 @@ class Empresa
     {
         return $this->estado;
     }
+
+    public function __toString()
+    {
+      return $this->getRazonSocial(); // if you have a name property you can do $this->getName();
+    }
 }
