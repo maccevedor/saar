@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formulariodetalle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formularioDetalle.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ formularioDetalle.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Tip</th>
+                <td>{{ formularioDetalle.tip }}</td>
+            </tr>
+            <tr>
+                <th>Itemtipo</th>
+                <td>{{ formularioDetalle.itemTipo }}</td>
+            </tr>
+            <tr>
+                <th>Ordering</th>
+                <td>{{ formularioDetalle.ordering }}</td>
+            </tr>
+            <tr>
+                <th>Required</th>
+                <td>{{ formularioDetalle.required }}</td>
+            </tr>
+            <tr>
+                <th>Searchable</th>
+                <td>{{ formularioDetalle.searchable }}</td>
+            </tr>
+            <tr>
+                <th>Param</th>
+                <td>{{ formularioDetalle.param }}</td>
+            </tr>
+            <tr>
+                <th>Fieldcode</th>
+                <td>{{ formularioDetalle.fieldCode }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if formularioDetalle.fecha %}{{ formularioDetalle.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechatiempo</th>
+                <td>{% if formularioDetalle.fechaTiempo %}{{ formularioDetalle.fechaTiempo|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Hash</th>
+                <td>{{ formularioDetalle.hash }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ formularioDetalle.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('formulariodetalle_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('formulariodetalle_edit', { 'id': formularioDetalle.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

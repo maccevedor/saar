@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formularioopcions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Opcion</th>
+                <th>Fecha</th>
+                <th>Fechatiempo</th>
+                <th>Hash</th>
+                <th>Estado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formularioOpcion in formularioOpcions %}
+            <tr>
+                <td><a href="{{ path('formularioopcion_show', { 'id': formularioOpcion.id }) }}">{{ formularioOpcion.id }}</a></td>
+                <td>{{ formularioOpcion.opcion }}</td>
+                <td>{% if formularioOpcion.fecha %}{{ formularioOpcion.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if formularioOpcion.fechaTiempo %}{{ formularioOpcion.fechaTiempo|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ formularioOpcion.hash }}</td>
+                <td>{{ formularioOpcion.estado }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('formularioopcion_show', { 'id': formularioOpcion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('formularioopcion_edit', { 'id': formularioOpcion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('formularioopcion_new') }}">Create a new formularioOpcion</a>
+        </li>
+    </ul>
+{% endblock %}

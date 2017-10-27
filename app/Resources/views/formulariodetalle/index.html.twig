@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Formulariodetalles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Tip</th>
+                <th>Itemtipo</th>
+                <th>Ordering</th>
+                <th>Required</th>
+                <th>Searchable</th>
+                <th>Param</th>
+                <th>Fieldcode</th>
+                <th>Fecha</th>
+                <th>Fechatiempo</th>
+                <th>Hash</th>
+                <th>Estado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formularioDetalle in formularioDetalles %}
+            <tr>
+                <td><a href="{{ path('formulariodetalle_show', { 'id': formularioDetalle.id }) }}">{{ formularioDetalle.id }}</a></td>
+                <td>{{ formularioDetalle.nombre }}</td>
+                <td>{{ formularioDetalle.tip }}</td>
+                <td>{{ formularioDetalle.itemTipo }}</td>
+                <td>{{ formularioDetalle.ordering }}</td>
+                <td>{{ formularioDetalle.required }}</td>
+                <td>{{ formularioDetalle.searchable }}</td>
+                <td>{{ formularioDetalle.param }}</td>
+                <td>{{ formularioDetalle.fieldCode }}</td>
+                <td>{% if formularioDetalle.fecha %}{{ formularioDetalle.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if formularioDetalle.fechaTiempo %}{{ formularioDetalle.fechaTiempo|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ formularioDetalle.hash }}</td>
+                <td>{{ formularioDetalle.estado }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('formulariodetalle_show', { 'id': formularioDetalle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('formulariodetalle_edit', { 'id': formularioDetalle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('formulariodetalle_new') }}">Create a new formularioDetalle</a>
+        </li>
+    </ul>
+{% endblock %}

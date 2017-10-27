@@ -1,3 +1,11 @@
+saar_formulario_opcion:
+    resource: "@SaarBundle/Controller/FormularioOpcionController.php"
+    type:     annotation
+
+saar_formulario_detalle:
+    resource: "@SaarBundle/Controller/FormularioDetalleController.php"
+    type:     annotation
+
 saar_formulario:
     resource: "@SaarBundle/Controller/FormularioController.php"
     type:     annotation
