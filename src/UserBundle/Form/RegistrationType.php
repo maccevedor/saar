@@ -7,7 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use SaarBundle\Entity\Empresa;
-
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class RegistrationType extends AbstractType
 {
@@ -31,6 +32,37 @@ class RegistrationType extends AbstractType
       $builder->add('movil');
       //$builder->add('country');
       $builder->add('idEmpresa');
+      $builder->add('roles', ChoiceType::class, array(
+    'attr'  =>  array('class' => 'form-control',),
+    //'style' => 'margin:5px 0;'),
+    'choices' =>
+    array
+    (
+        'ROLE_ADMIN' => array
+        (
+            'Administrador' => 'ROLE_ADMIN',
+        ),
+        'ROLE_SUPERVISOR' => array
+        (
+            'Supervisor' => 'ROLE_SUPERVISOR'
+        ),
+        'ROLE_ASESOR' => array
+        (
+            'Asesor' => 'ROLE_ASESOR'
+        ),
+        'ROLE_CLIENTE' => array
+        (
+            'Cliente' => 'ROLE_CLIENTE'
+        ),
+    )
+    ,
+    'multiple' => true,
+    'expanded' => true,
+    'required' => true,
+    )
+);
+
+
     }
 
     public function getParent()
@@ -51,6 +83,5 @@ class RegistrationType extends AbstractType
     {
         return $this->getBlockPrefix();
     }
-
 
 }
