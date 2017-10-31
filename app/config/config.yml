@@ -79,3 +79,7 @@ fos_user:
     registration:
         form:
             type: UserBundle\Form\RegistrationType
+
+easy_admin:
+    entities:
+        - UserBundle\Entity\User
