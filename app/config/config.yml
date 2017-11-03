@@ -85,15 +85,31 @@ vich_uploader:
 
     mappings:
         customer_image:
-            uri_prefix:         /images/customers
-            upload_destination: %kernel.root_dir%/../web/images/customers
+            uri_prefix:         /images/user
+            upload_destination: %kernel.root_dir%/../web/images/user
 
 easy_admin:
     entities:
       Usuario:
         class: UserBundle\Entity\User
+        list:
+            title: "User list"
+            fields: ['id', 'username', 'email', 'lastLogin', 'enabled', 'locked']
+            actions: ['show']
         edit:
-                fields: ['nombre', 'apellido','email','username']
+                fields:
+                  - nombre
+                  - apellido
+                  - email
+                  - username
+                  - { property: 'logoFile', type: 'file', label: 'Upload logo', help: 'Select file to upload / change logo' }
+        show:
+                fields:
+                  - nombre
+                  - apellido
+                  - email
+                  - username
+                  - { property: 'logo', type: 'image', base_path: 'http://localhost/saar/web/images/user/' }
       Empresa:
         class: SaarBundle\Entity\Empresa
       Estado:

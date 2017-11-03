@@ -30,11 +30,18 @@ class User extends BaseUser
     protected $tipoIdentificacion;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255)
+     */
+    private $logo;
+
+    /**
      * @Vich\UploadableField(mapping="customer_image", fileNameProperty="logo")
      *
      * @var File $logoFile
      */
-    private $logoFile;
+    protected $logoFile;
 
     /**
      * @var string
@@ -130,6 +137,22 @@ class User extends BaseUser
         // your own logic
     }
 
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     */
+    public function setLogoFile(File $image = null)
+    {
+        $this->logoFile = $image;
+
+    }
+
+    /**
+     * @return File
+     */
+    public function getLogoFile()
+    {
+        return $this->logoFile;
+    }
 
 
     public static function getGeneros()
@@ -402,5 +425,29 @@ class User extends BaseUser
     public function getIdEmpresa()
     {
         return $this->idEmpresa;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return User
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
     }
 }
