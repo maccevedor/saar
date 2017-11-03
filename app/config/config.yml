@@ -82,4 +82,18 @@ fos_user:
 
 easy_admin:
     entities:
-        - UserBundle\Entity\User
+      Usuario:
+        class: UserBundle\Entity\User
+        edit:
+                fields: ['nombre', 'apellido','email','username']
+      Empresa:
+        class: SaarBundle\Entity\Empresa
+      Estado:
+        class: SaarBundle\Entity\Estado
+        form:
+            fields:
+                - nombre
+                - modulo
+            list: ['nombre','modulo']
+      Formulario:
+        class: SaarBundle\Entity\Formulario

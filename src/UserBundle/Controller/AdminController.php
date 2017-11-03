@@ -36,6 +36,14 @@ class AdminController extends BaseAdminController
 
    }
 
+   public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+        $this->updatedAt = new \DateTime();
+
+        return $this;
+    }
+
 }
 
 ?>

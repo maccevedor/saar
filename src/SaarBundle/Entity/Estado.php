@@ -47,7 +47,11 @@ class Estado
      *
      * @ORM\Column(name="estado", type="string", length=1, nullable=true)
      */
-    private $estado;
+    private $estado=1;
+
+    function __construct(){
+
+    }
 
     /**
      * Get id
