@@ -4,11 +4,14 @@ namespace UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ *
+ * @Vich\Uploadable
  */
 class User extends BaseUser
 {
@@ -25,6 +28,13 @@ class User extends BaseUser
      * @ORM\Column(name="tipo_identificacion", type="string", length=200, nullable=true)
      */
     protected $tipoIdentificacion;
+
+    /**
+     * @Vich\UploadableField(mapping="customer_image", fileNameProperty="logo")
+     *
+     * @var File $logoFile
+     */
+    private $logoFile;
 
     /**
      * @var string
@@ -112,11 +122,15 @@ class User extends BaseUser
 
     private $idEmpresa;
 
+
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
+
 
     public static function getGeneros()
     {
