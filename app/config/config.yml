@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@SaarBundle/Resources/config/services.yml" }
+    - { resource: admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -87,37 +88,3 @@ vich_uploader:
         customer_image:
             uri_prefix:         /images/user
             upload_destination: %kernel.root_dir%/../web/images/user
-
-easy_admin:
-    entities:
-      Usuario:
-        class: UserBundle\Entity\User
-        list:
-            title: "User list"
-            fields: ['id', 'username', 'email', 'lastLogin', 'enabled', 'locked']
-            actions: ['show']
-        edit:
-                fields:
-                  - nombre
-                  - apellido
-                  - email
-                  - username
-                  - { property: 'logoFile', type: 'file', label: 'Upload logo', help: 'Select file to upload / change logo' }
-        show:
-                fields:
-                  - nombre
-                  - apellido
-                  - email
-                  - username
-                  - { property: 'logo', type: 'image', base_path: 'http://localhost/saar/web/images/user/' }
-      Empresa:
-        class: SaarBundle\Entity\Empresa
-      Estado:
-        class: SaarBundle\Entity\Estado
-        form:
-            fields:
-                - nombre
-                - modulo
-            list: ['nombre','modulo']
-      Formulario:
-        class: SaarBundle\Entity\Formulario

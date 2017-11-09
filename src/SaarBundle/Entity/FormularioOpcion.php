@@ -77,8 +77,9 @@ class FormularioOpcion
     * @ORM\JoinColumns({
     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
     * })use Doctrine\ORM\Mapping as ORM;
-
     */
+
+    private $idUser;
 
     function __construct(){
         //$this->hash=md5(time());
@@ -239,5 +240,29 @@ class FormularioOpcion
     public function getIdFormularioDetalle()
     {
         return $this->idFormularioDetalle;
+    }
+
+    /**
+     * Set idUser
+     *
+     * @param \UserBundle\Entity\User $idUser
+     *
+     * @return FormularioOpcion
+     */
+    public function setIdUser(\UserBundle\Entity\User $idUser = null)
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * Get idUser
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
     }
 }
