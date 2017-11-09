@@ -1,0 +1,43 @@
+easy_admin:
+    entities:
+      Usuario:
+        class: UserBundle\Entity\User
+        list:
+            title: "User list"
+            fields: ['id', 'username', 'email', 'lastLogin', 'enabled', 'locked']
+            actions: ['show']
+        edit:
+                fields:
+                  - nombre
+                  - apellido
+                  - email
+                  - username
+                  - { property: 'logoFile', type: 'file', label: 'Upload logo', help: 'Select file to upload / change logo' }
+        show:
+                fields:
+                  - nombre
+                  - apellido
+                  - email
+                  - username
+                  - { property: 'logo', type: 'image', base_path: 'http://localhost/saar/web/images/user/' }
+      Empresa:
+        class: SaarBundle\Entity\Empresa
+      Formulario:
+        class: SaarBundle\Entity\Formulario
+      FormularioDetalle:
+        class: SaarBundle\Entity\FormularioDetalle
+      FormularioOpcion:
+        class: SaarBundle\Entity\FormularioOpcion
+      Notificacion:
+        class: SaarBundle\Entity\Notificacion
+      Visita:
+        class: SaarBundle\Entity\Visita
+      FormularioRespuesta:
+        class: SaarBundle\Entity\FormularioRespuesta
+      Estado:
+          class: SaarBundle\Entity\Estado
+          form:
+              fields:
+                  - nombre
+                  - modulo
+              list: ['nombre','modulo']
