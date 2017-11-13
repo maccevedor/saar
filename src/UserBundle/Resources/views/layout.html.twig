@@ -1,12 +1,56 @@
-<div id="header-footer" class="navbar-right">
-    {% block header_footer %}
-        {% if app.user %}
-            <div id="header-security">
-                <p>
-                    <small><i class="fa fa-lock"></i> <span>{{ 'header.logged_in_as'|trans }}</span></small>
-                    {{ app.user.username|default('Unnamed User') }} | <a href="{{ path('fos_user_security_logout') }}" title="logout">logout</a>
-                </p>
-            </div>
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+    {% block body %}
+
+        <div class="form-authenticated">
+          <img src="{{ asset("images/maccevedor/logo.png") }}" class="img-responsive" alt="Saar">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                  <h2 class="form-signin-heading">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </h2>
+                  <h3><a href="{{ path('fos_user_security_logout') }}">
+                      {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                      </a></h3>
+            {% else %}
+                <!-- <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> -->
+            {% endif %}
+        </div>
+
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
         {% endif %}
-    {% endblock header_footer %}
-</div>
+
+        <div class="container">
+              {% if error %}
+                  <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+              {% endif %}
+
+              <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+                  {% if csrf_token %}
+                      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                  {% endif %}
+
+                  <label for="username">{{ 'security.login.username'|trans }} / email</label>
+                  <input class="form-control" placeholder="{{ 'security.login.username'|trans }} / email" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+                  <label for="password">{{ 'security.login.password'|trans }}</label>
+                  <input class="form-control" placeholder="{{ 'security.login.password'|trans }}" type="password" id="password" name="_password" required="required" />
+                  <div class="checkbox">
+                    <label>
+                      <input  type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'security.login.remember_me'|trans }}
+                    </label>
+                  </div>
+                  <!-- <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label> -->
+
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+              </form>
+        </div>
+
+
+    {% endblock %}
